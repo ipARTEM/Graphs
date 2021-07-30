@@ -30,7 +30,46 @@ namespace Graphs
             graph.AddEdge(v2, v5);
             graph.AddEdge(v5, v6);
 
-            var matrix = graph.GetMatrix();
+            GetMatrix(graph);
+
+            
+           
+
+            
+            Console.WriteLine();
+            Console.WriteLine();
+
+            GetVertex(graph,v1);
+            GetVertex(graph, v2);
+            GetVertex(graph, v3);
+            GetVertex(graph, v4);
+            GetVertex(graph, v5);
+            GetVertex(graph, v6);
+            GetVertex(graph, v7);
+
+            Console.WriteLine(graph.Wave(v1,v5));
+            Console.WriteLine(graph.Wave(v1, v2));
+
+
+
+            Console.WriteLine();
+        }
+
+        private static void GetVertex(Graph graph, Vertex vertex)
+        {
+            Console.Write(vertex.Number+": ");
+            foreach (var v in graph.GetVetexLists(vertex))
+            {
+                Console.Write(v.Number +", ") ;
+
+            }
+            Console.WriteLine();
+
+        }
+
+        private static void GetMatrix(Graph graph)
+        {
+            int[,] matrix = graph.GetMatrix();
 
             for (int i = 0; i < graph.VertexCount; i++)
             {
@@ -43,13 +82,6 @@ namespace Graphs
                 Console.WriteLine();
             }
             Console.WriteLine(" ____________________________________________");
-
-            for (int i = 0; i < graph.VertexCount; i++)
-            {
-                Console.Write($" | {i+1}  |");
-                
-            }
-            Console.WriteLine();
         }
     }
 }
